@@ -34,7 +34,7 @@
 
         </div>
 
-       <ul>
+        <ul>
 
             <li><a href="index.html" class="active">Beranda</a></li>
 
@@ -59,39 +59,32 @@
     </nav>
 
     <!-- HERO -->
-
     <section class="hero" id="home">
+
+        <!-- VIDEO BACKGROUND -->
+        <video autoplay muted loop playsinline class="hero-video">
+            <source src="video/budaya.mp4" type="video/mp4">
+        </video>
 
         <div class="overlay"></div>
 
         <div class="hero-content">
 
             <h1>
-
                 Jelajah Wisata
-
                 <br>
-
                 Budaya Indonesia
-
             </h1>
 
             <p>
-
                 Menjelajahi kekayaan budaya dari Surabaya,
-
                 Yogyakarta, Jakarta, Papua,
-
                 hingga Sumatra Utara.
-
             </p>
 
             <div class="hero-btn">
-
                 <a href="#wisata">Explore Now</a>
-
                 <a href="#gallery" class="glass">Gallery</a>
-
             </div>
 
         </div>
@@ -99,27 +92,18 @@
         <div class="glass-card">
 
             <div>
-
                 <h2>5+</h2>
-
                 <p>Daerah</p>
-
             </div>
 
             <div>
-
                 <h2>25+</h2>
-
                 <p>Destinasi</p>
-
             </div>
 
             <div>
-
                 <h2>4.9</h2>
-
                 <p>Rating</p>
-
             </div>
 
         </div>
@@ -132,7 +116,7 @@
 
         <div class="about-image">
 
-            <img src="img/hero.jpg">
+            <img src="img/logo_jelajah budaya.png">
 
         </div>
 
@@ -230,7 +214,8 @@
 
             <div class="card">
 
-                <img src="https://ik.imagekit.io/tvlk/blog/2025/01/shutterstock_1521325943.jpg?tr=q-70,c-at_max,w-1000,h-600">
+                <img
+                    src="https://ik.imagekit.io/tvlk/blog/2025/01/shutterstock_1521325943.jpg?tr=q-70,c-at_max,w-1000,h-600">
 
                 <div class="content">
 
@@ -266,7 +251,8 @@
 
             <div class="card">
 
-                <img src="https://www.indonesia.travel/contentassets/6cb9a04f5f8b4f288aef6eb060cce4ad/jcr_content-29.jpg">
+                <img
+                    src="https://www.indonesia.travel/contentassets/6cb9a04f5f8b4f288aef6eb060cce4ad/jcr_content-29.jpg">
 
                 <div class="content">
 
@@ -275,6 +261,24 @@
                     <p>
 
                         Istana Maimun
+
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="card">
+
+                <img
+                    src="https://asset.kompas.com/crops/TdDtOcDUw8m4dbPl3t4ydu9GG_Y=/115x217:915x750/1200x800/data/photo/2023/08/13/64d87d100ad37.jpg">
+
+                <div class="content">
+
+                    <h3>Bandung</h3>
+
+                    <p>
+
+                        Gedung Sate
 
                     </p>
 
@@ -294,7 +298,7 @@
 
             <h2>
 
-                Gallery
+                Art & Culture Gallery
 
             </h2>
 
@@ -302,17 +306,17 @@
 
         <div class="gallery-grid">
 
-            <img src="img/gallery1.jpg">
+            <img
+                src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgxbCjZksRaXNJvzjLMx4C0TCl4wQ-JRCQYw80y7VcjRcs2xZnFDf0uZ2aijyOM2jy5N32W1wc3ngVUMdBjHn2NvkvPRPw38yshXLRNizaRTPyNeLgaz_7HmJbcZ6snDZ9GFbhge6NrPIc/s2804/FINAL_DOODLE+17AN+2021+%25281%2529.jpeg">
 
-            <img src="img/gallery2.jpg">
+            <img
+                src="https://www.google.com/logos/doodles/2025/indonesia-independence-day-2025-6753651837110670-2x.png">
 
-            <img src="img/gallery3.jpg">
+            <img
+                src="https://cdn.grid.id/crop/0x0:0x0/x/photo/2025/01/14/apa-itu-keragaman-budaya-ini-pen-20250114101719.jpg">
 
-            <img src="img/gallery4.jpg">
+            <img src="https://inca.ac.id/wp-content/uploads/2025/07/d4308ac60d0341ea9f9af6fd01fc1f1a.jpg">
 
-            <img src="img/gallery5.jpg">
-
-            <img src="img/gallery6.jpg">
 
         </div>
 
@@ -367,10 +371,21 @@
     <!-- FOOTER -->
 
     <footer>
-
-        © 2026 Jelajah Wisata Daerahku
-
+        <p>© 2026 Jelajah Wisata Daerahku</p>
     </footer>
+
+    <!-- AUDIO -->
+    <audio id="bgMusic" loop>
+        <source src="audio/gamelan.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- FLOATING MUSIC BUTTON -->
+    <button id="musicBtn" class="music-btn">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <!-- JAVASCRIPT -->
+    <script src="js/script.js"></script>
 
 </body>
 

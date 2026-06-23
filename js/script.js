@@ -4,61 +4,25 @@ NAVBAR SCROLL EFFECT
 
 const navbar = document.querySelector("nav");
 
-window.addEventListener("scroll", () => {
+if (navbar) {
+    window.addEventListener("scroll", () => {
 
-    if (window.scrollY > 80) {
+        if (window.scrollY > 80) {
 
-        navbar.style.background = "rgba(6,26,24,0.85)";
-        navbar.style.backdropFilter = "blur(25px)";
-        navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.3)";
+            navbar.style.background = "rgba(6,26,24,0.85)";
+            navbar.style.backdropFilter = "blur(25px)";
+            navbar.style.boxShadow = "0 10px 30px rgba(0,0,0,.3)";
 
-    } else {
+        } else {
 
-        navbar.style.background = "rgba(255,255,255,.08)";
-        navbar.style.backdropFilter = "blur(18px)";
-        navbar.style.boxShadow = "none";
-
-    }
-
-});
-
-
-/* ===========================
-ACTIVE NAVIGATION
-=========================== */
-
-const sections = document.querySelectorAll("section");
-const navLinks = document.querySelectorAll("nav ul li a");
-
-window.addEventListener("scroll", () => {
-
-    let current = "";
-
-    sections.forEach(section => {
-
-        const sectionTop = section.offsetTop - 120;
-
-        if (scrollY >= sectionTop) {
-
-            current = section.getAttribute("id");
+            navbar.style.background = "rgba(255,255,255,.08)";
+            navbar.style.backdropFilter = "blur(18px)";
+            navbar.style.boxShadow = "none";
 
         }
 
     });
-
-    navLinks.forEach(link => {
-
-        link.classList.remove("active");
-
-        if (link.getAttribute("href") === "#" + current) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-});
+}
 
 
 /* ===========================
@@ -66,9 +30,7 @@ REVEAL ANIMATION
 =========================== */
 
 const revealElements = document.querySelectorAll(
-
-    ".about,.card,.gallery img,.contact-box"
-
+    ".about, .card, .gallery img, .contact-box, .glass-card, .gallery-card, .about-card, .team-card"
 );
 
 function reveal() {
@@ -76,15 +38,11 @@ function reveal() {
     revealElements.forEach(item => {
 
         const windowHeight = window.innerHeight;
-
         const elementTop = item.getBoundingClientRect().top;
-
         const revealPoint = 120;
 
         if (elementTop < windowHeight - revealPoint) {
-
             item.classList.add("show");
-
         }
 
     });
@@ -92,7 +50,6 @@ function reveal() {
 }
 
 window.addEventListener("scroll", reveal);
-
 reveal();
 
 
@@ -105,15 +62,11 @@ const cards = document.querySelectorAll(".card");
 cards.forEach(card => {
 
     card.addEventListener("mouseenter", () => {
-
         card.style.transform = "translateY(-12px) scale(1.02)";
-
     });
 
     card.addEventListener("mouseleave", () => {
-
         card.style.transform = "translateY(0) scale(1)";
-
     });
 
 });
@@ -144,9 +97,14 @@ window.addEventListener("scroll", () => {
 
     const hero = document.querySelector(".hero");
 
-    let offset = window.pageYOffset;
+    if (hero) {
 
-    hero.style.backgroundPositionY = offset * 0.4 + "px";
+        let offset = window.pageYOffset;
+
+        hero.style.backgroundPositionY =
+            offset * 0.4 + "px";
+
+    }
 
 });
 
@@ -161,11 +119,15 @@ if (exploreBtn) {
 
     exploreBtn.addEventListener("click", () => {
 
-        document.querySelector("#wisata").scrollIntoView({
+        const wisataSection = document.querySelector("#wisata");
 
-            behavior: "smooth"
+        if (wisataSection) {
 
-        });
+            wisataSection.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
 
     });
 
@@ -178,15 +140,20 @@ FADE HERO CONTENT
 
 window.addEventListener("scroll", () => {
 
-    const heroContent = document.querySelector(".hero-content");
+    const heroContent =
+        document.querySelector(".hero-content");
 
-    let value = window.scrollY;
+    if (heroContent) {
 
-    heroContent.style.opacity = 1 - value / 700;
+        let value = window.scrollY;
 
-    heroContent.style.transform =
+        heroContent.style.opacity =
+            1 - value / 700;
 
-        `translateY(${value * 0.3}px)`;
+        heroContent.style.transform =
+            `translateY(${value * 0.3}px)`;
+
+    }
 
 });
 
@@ -195,15 +162,20 @@ window.addEventListener("scroll", () => {
 NUMBER ANIMATION
 =========================== */
 
-const numbers = document.querySelectorAll(".glass-card h2");
+const numbers =
+    document.querySelectorAll(".glass-card h2");
 
 let started = false;
 
 window.addEventListener("scroll", () => {
 
-    const card = document.querySelector(".glass-card");
+    const card =
+        document.querySelector(".glass-card");
 
-    const top = card.getBoundingClientRect().top;
+    if (!card) return;
+
+    const top =
+        card.getBoundingClientRect().top;
 
     if (top < window.innerHeight && !started) {
 
@@ -211,7 +183,12 @@ window.addEventListener("scroll", () => {
 
         numbers.forEach(num => {
 
-            let target = parseFloat(num.innerText);
+            let originalText = num.innerText;
+
+            let target =
+                parseFloat(originalText);
+
+            if (isNaN(target)) return;
 
             let count = 0;
 
@@ -223,22 +200,18 @@ window.addEventListener("scroll", () => {
 
                 if (count >= target) {
 
-                    num.innerText = num.innerText.includes("+")
-
-                        ? target + "+"
-
-                        : target;
+                    num.innerText =
+                        originalText.includes("+")
+                            ? target + "+"
+                            : target;
 
                     clearInterval(interval);
 
                 } else {
 
                     num.innerText =
-
-                        num.innerText.includes("+")
-
+                        originalText.includes("+")
                             ? Math.floor(count) + "+"
-
                             : count.toFixed(1);
 
                 }
@@ -259,5 +232,30 @@ SMOOTH PAGE LOADING
 window.addEventListener("load", () => {
 
     document.body.style.opacity = "1";
+
+});
+const music = document.getElementById("bgMusic");
+const musicBtn = document.getElementById("musicBtn");
+
+musicBtn.addEventListener("click", () => {
+
+    if (music.paused) {
+
+        music.play();
+
+        musicBtn.classList.add("music-playing");
+
+        musicBtn.innerHTML =
+            '<i class="fa-solid fa-volume-high"></i>';
+
+    } else {
+
+        music.pause();
+
+        musicBtn.classList.remove("music-playing");
+
+        musicBtn.innerHTML =
+            '<i class="fa-solid fa-music"></i>';
+    }
 
 });
